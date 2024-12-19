@@ -3,6 +3,7 @@
   background-image: url("/public/wintersunrise.jpg");
   background-size: cover;
   height: 60rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .App-logo {
@@ -31,3 +32,39 @@
   color: #61dafb;
 }
 
+.box {
+  margin: auto;
+  padding: 2rem;
+  display: block;
+  width: 50%;
+  align-items: center;
+  background-color: #08080833;
+}
+
+.outer {
+  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: space-around;
+}
+
+.text {
+  color: whitesmoke;
+  padding: 0.5rem;
+}
+
+.time {
+  color: whitesmoke;
+  font-size: 4rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-size: 3rem;
+  padding: 3rem;
+  
+  font-style: italic;
+  letter-spacing: 3px;
+  /* background-color: #FFFFFF1A; */
+  border-radius: 3px;
+}
