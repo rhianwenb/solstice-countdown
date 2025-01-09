@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 function App() {
 
   const [solstice, setSolstice] = useState(false);
+//   const [summer, setSummer] = useState(false);
+//   const [winter, setWinter] = useState(false);
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -13,7 +15,7 @@ function App() {
 
   useEffect(() => {
 
-      const target = new Date("December 21, 2024 09:19:59");
+      const target = new Date("June 21, 2025 03:42:59");
 
       const interval = setInterval(() => {
           const now = new Date();
@@ -40,11 +42,11 @@ function App() {
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p className="title">
-          Countdown to the Winter Solstice
+          Countdown to the Solstice
         </p>
       </header>
       <div className="box">
-        { solstice ? ("Merry Christmas!") : 
+        { solstice ? ("Happy Solstice!") : 
         (<div className="outer">
             <div >
                 <span className="time">{days}</span>     
