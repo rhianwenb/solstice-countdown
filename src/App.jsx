@@ -5,17 +5,20 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
+  const summer2025 = "June 21, 2025 03:42:59";
+  const winter2025 = "December 21, 2025 03:02:59";  
+
   const [solstice, setSolstice] = useState(false);
-//   const [summer, setSummer] = useState(false);
-//   const [winter, setWinter] = useState(false);
+  const [nextSolstice, setNextSolstice] = useState(summer2025);
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
+
   useEffect(() => {
 
-      const target = new Date("June 21, 2025 03:42:59");
+      const target = new Date(nextSolstice);
 
       const interval = setInterval(() => {
           const now = new Date();
@@ -35,7 +38,10 @@ function App() {
       return () => clearInterval(interval);
   }, []);
 
-
+  function handleClick(e) {
+    e.preventDefault();
+    console.log("Click!");
+  };
 
   return (
     <div className="App">
@@ -70,6 +76,10 @@ function App() {
         </div>)
         }
     </div>
+    <br></br>
+        <div>
+            <button className="reset" onClick={handleClick}> Set Countdown to Winter Solstice 2025 </button>
+        </div>
     </div>
   );
 }
