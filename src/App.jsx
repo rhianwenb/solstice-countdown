@@ -5,8 +5,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
-  const summer2025 = "June 21, 2025 03:42:59";
-  const winter2025 = "December 21, 2025 03:02:59";  
+  const summer2025 = "June 21, 2025 03:42:59";  
 
   const [solstice, setSolstice] = useState(false);
   const [nextSolstice, setNextSolstice] = useState(summer2025);
@@ -36,10 +35,11 @@ function App() {
           };
       }, 1000);
       return () => clearInterval(interval);
-  }, []);
+  }, [nextSolstice]);
 
   function handleClick(e) {
     e.preventDefault();
+    setNextSolstice(summer2025);
     console.log("Click!");
   };
 
