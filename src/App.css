@@ -73,7 +73,11 @@ button {
   border: none;
   font-size: 1rem;
   padding: 0.5rem;
-  background-color: #fff;
+  background-color: transparent;
   color: #080808CC;
   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+button:hover {
+  cursor: pointer;
 }

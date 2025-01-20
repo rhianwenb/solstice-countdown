@@ -9,15 +9,34 @@ function App() {
 
   const [solstice, setSolstice] = useState(false);
   const [nextSolstice, setNextSolstice] = useState(summer2025);
+  const [futureSolstice, setFutureSolstice] = useState(summer2025);
+  const [label, setLabel] = useState("");
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
+  async function getFutureSolstice(id) {
+    try {
+        let response = await fetch("/dates.json")
+        if (response) {
+            let data = await response.json();
+            let selectedData = data.filter(s => s.id === id);
+            for (let i = 0; i < selectedData; i++) {
+                setFutureSolstice(selectedData[i].date)
+                setLabel(selectedData[i].text)
+            }
+        }
+    }
+    catch (e) {
+        console.log(`Error: ${e.status} ${e.statusText}`)
+    };
+  };
+
 
   useEffect(() => {
 
-      const target = new Date(nextSolstice);
+      const target = new Date(futureSolstice);
 
       const interval = setInterval(() => {
           const now = new Date();
@@ -37,11 +56,12 @@ function App() {
       return () => clearInterval(interval);
   }, [nextSolstice]);
 
-  function handleClick(e) {
-    e.preventDefault();
-    setNextSolstice(summer2025);
-    console.log("Click!");
-  };
+//   function handleClick(e) {
+//     e.preventDefault();
+//     setNextSolstice(summer2025);
+//     console.log("Click!");
+//   };
+
 
   return (
     <div className="App">
@@ -78,7 +98,13 @@ function App() {
     </div>
     <br></br>
         <div>
-            <button className="reset" onClick={handleClick}> Set Countdown to Winter Solstice 2025 </button>
+            {/* <button className="reset" onClick={handleClick}> Winter 2025 </button> */}
+            <select>
+                <option value="winter2025" id="0" onChange={getFutureSolstice(0)}>Summer 2025</option>
+                <option value="winter2025" id="1" onChange={getFutureSolstice(1)}>Winter 2025</option>
+                <option value="winter2026" id="2">Summer 2026</option>
+
+            </select>
         </div>
     </div>
   );
