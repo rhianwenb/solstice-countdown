@@ -17,22 +17,22 @@ function App() {
   const [seconds, setSeconds] = useState(0);
 
 
-  function handleChange(e) {
-    e.preventDefault();
-    console.log(e);
-  };
+//   function handleChange(e) {
+//     e.preventDefault();
+//     console.log(e);
+//   };
 
-  async function getFutureSolstice(id) {
+  async function getFutureSolstice() {
+    let selected = document.getElementById("select-event").value
+    console.log(selected)
     try {
         let response = await fetch("/dates.json")
         if (response) {
             let data = await response.json();
-            let selectedData = data.filter(s => s.id === id);
-            // console.log(selectedData);
-            for (let i = 0; i < selectedData; i++) {
-                setFutureSolstice(selectedData[i].date)
-                setLabel(selectedData[i].text)
-            }
+            let selectedData = data.filter(s => s.ref === selected);
+            console.log(selectedData[0].date);
+            setFutureSolstice(selectedData[0].date)
+            setLabel(selectedData[0].text)
         }
     }
     catch (e) {
@@ -106,12 +106,14 @@ function App() {
     <br></br>
         <div>
             {/* <button className="reset" onClick={handleClick}> Winter 2025 </button> */}
-            <select onChange={handleChange}>
-                <option value="select">Select Future Solstice</option>
-                <option value="winter2025" id="0"> Summer 2025 </option>
+            <select id="select-event" onChange={getFutureSolstice}>
+                {/* <option value="select-future-solstice">Select Future Solstice</option> */}
+                <option value="summer2025" id="0"> Summer 2025 </option>
                 <option value="winter2025" id="1"> Winter 2025 </option>
-                <option value="winter2026" id="2"> Summer 2026 </option>
-
+                <option value="summer2026" id="2"> Summer 2026 </option>
+                <option value="winter2026" id="3"> Winter 2026 </option>
+                <option value="summer2027" id="2"> Summer 2027 </option>
+                <option value="winter2027" id="2"> Summer 2027 </option>
             </select>
         </div>
     </div>

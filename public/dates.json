@@ -3,32 +3,38 @@
     {
         "id": 0,
         "date": "June 21, 2025 03:42:59",
-        "text": "Summer 2025"
+        "text": "Summer 2025",
+        "ref": "summer2025"
     },
     {
        "id": 1,
        "date": "December 21, 2025 03:02:00",
-       "text": "Winter 2025" 
+       "text": "Winter 2025",
+       "ref": "winter2025" 
     },
     {
         "id": 2,
         "date": "June 21, 2026 09:24:00",
-        "text": "Summer 2026"
+        "text": "Summer 2026",
+        "ref": "summer2026"
     },
     {
         "id": 3,
         "date": "December 21, 2026 08:49:00",
-        "text": "Summer 2026"
+        "text": "Winter 2026",
+        "ref": "winter2026"
     },
     {
         "id": 4,
         "date": "June 21, 2027 15:10:00",
-        "text": "Summer 2027"
+        "text": "Summer 2027",
+        "ref": "summer2027"
     },
     {
         "id": 5,
         "date": "December 22, 2027 02:41:00",
-        "text": "Winter 2027"
+        "text": "Winter 2027",
+        "ref": "winter2027"
     }
 ]
 
